@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Developer {
@@ -18,6 +19,8 @@ public class Developer {
 	private String address;
 	private String phone;
 	private boolean status;
+	@ManyToOne
+	private Project project;
 	public int getId() {
 		return id;
 	}
@@ -72,12 +75,19 @@ public class Developer {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	public Project getProject() {
+		return project;
+	}
+	public void setProject(Project project) {
+		this.project = project;
+	}
 	@Override
 	public String toString() {
 		return "Developer [id=" + id + ", name=" + name + ", email=" + email + ", role=" + role + ", designation="
 				+ designation + ", password=" + password + ", address=" + address + ", phone=" + phone + ", status="
-				+ status + "]";
+				+ status + ", project=" + project + "]";
 	}
+	
 	
 	
 

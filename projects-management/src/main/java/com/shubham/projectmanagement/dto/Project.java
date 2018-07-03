@@ -16,7 +16,8 @@ public class Project {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String projectName;
-	//private List<Developer> developersId;
+	@OneToMany(mappedBy="project")
+	private List<Developer> developersId = new ArrayList<>();
 	private int teamLeadId;
 	private boolean status;
 	@OneToMany(mappedBy="project")
@@ -51,10 +52,17 @@ public class Project {
 	public void setTask(List<Task> task) {
 		this.task = task;
 	}
+	public List<Developer> getDevelopersId() {
+		return developersId;
+	}
+	public void setDevelopersId(List<Developer> developersId) {
+		this.developersId = developersId;
+	}
 	@Override
 	public String toString() {
-		return "Project [id=" + id + ", projectName=" + projectName + ", teamLeadId=" + teamLeadId + ", status="
-				+ status + ", task=" + task + "]";
+		return "Project [id=" + id + ", projectName=" + projectName + ", developersId=" + developersId + ", teamLeadId="
+				+ teamLeadId + ", status=" + status + ", task=" + task + "]";
 	}
+	
 	
 }
