@@ -81,6 +81,7 @@ public class Developer {
 	public void setProject(Project project) {
 		this.project = project;
 	}
+	
 	@Override
 	public String toString() {
 		return "Developer [id=" + id + ", name=" + name + ", email=" + email + ", role=" + role + ", designation="

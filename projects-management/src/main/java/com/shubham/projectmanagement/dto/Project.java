@@ -58,6 +58,7 @@ public class Project {
 	public void setDevelopersId(List<Developer> developersId) {
 		this.developersId = developersId;
 	}
+	
 	@Override
 	public String toString() {
 		return "Project [id=" + id + ", projectName=" + projectName + ", developersId=" + developersId + ", teamLeadId="
