@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/manage")
 public class ManagementController {
-
+ 
 	@RequestMapping("/developer")
 	public ModelAndView showManageDeveloper()
 	{

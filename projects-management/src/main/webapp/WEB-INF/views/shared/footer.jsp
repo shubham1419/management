@@ -2,7 +2,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="a${js}/plugins.js"></script>
     <script src="${js}/main.js"></script>
-
+ 
 
     <script src="${js}/lib/chart-js/Chart.bundle.js"></script>
     <script src="${js}/dashboard.js"></script>

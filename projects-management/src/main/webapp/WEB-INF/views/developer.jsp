@@ -209,7 +209,7 @@
 							placeholder="Project Description"></textarea>
 					</div>
 				</div>
-			</div>
+			</div> 
 
 			<!-- Success message -->
 			<div class="alert alert-success" role="alert" id="success_message">

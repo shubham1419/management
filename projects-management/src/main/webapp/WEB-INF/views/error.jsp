@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col">
 				<div class="jumbotron">
-					<center>
+					<center> 
 						<h2>${title}</h2>
 					</center>
 				</div>
