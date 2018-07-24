@@ -11,6 +11,8 @@
     <script src="${js}/lib/vector-map/jquery.vmap.min.js"></script>
     <script src="${js}/lib/vector-map/jquery.vmap.sampledata.js"></script>
     <script src="${js}/lib/vector-map/country/jquery.vmap.world.js"></script>
+    <!-- my custom js -->
+     <script src="${js}/my-custom.js"></script>
     <script>
         ( function ( $ ) {
             "use strict";

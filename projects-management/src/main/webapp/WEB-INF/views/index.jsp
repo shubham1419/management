@@ -9,6 +9,10 @@
 		<%@include file="dashboard.jsp"%>
 	</c:if>
 	
+	<c:if test="${userClickManageDeveloper == true}">
+		<%@include file="developer.jsp" %>
+	</c:if>
+	
 	<!--  **for testing purpose**-->
 	<c:if test="${userCLickTesting == true}">
 		<%@include file="testing.jsp"%>
