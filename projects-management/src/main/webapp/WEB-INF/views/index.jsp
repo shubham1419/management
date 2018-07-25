@@ -3,7 +3,7 @@
 <%@ include file="./shared/sidebar.jsp"%>
 <%@ include file="./shared/topHeader.jsp"%>
 </c:if>
-<body>
+<body> 
 
 	<c:if test="${userClickIndex == true}">
 		<%@include file="login.jsp"%>
