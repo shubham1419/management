@@ -3,7 +3,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.shubham</groupId>
 	<artifactId>projects-management</artifactId>
-	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>projects-management Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -18,6 +17,7 @@
 		<servlets.version>3.1.0</servlets.version>
 		<jsp.version>2.3.1</jsp.version>
 		<hsqldb.version>1.8.0.10</hsqldb.version>
+		<jackson.version>2.9.2</jackson.version>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -134,9 +134,18 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.7-dmr</version>
 		</dependency>
-
+		<!-- Jackson for JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
 	</dependencies>
-
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<resources>

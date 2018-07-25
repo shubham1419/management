@@ -3,6 +3,8 @@ package com.shubham.projectmanagement.daoImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -52,12 +54,19 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	
 	/*for getting single category by id*/
 	public Developer get(int id) {
+		try{
 		return sessionFactory.getCurrentSession().get(Developer.class,Integer.valueOf(id));
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
 	}
-
+		
 	public List<Developer> list() {
-		// TODO Auto-generated method stub
-		return devlopers;
+		//return devlopers;
+		return sessionFactory.getCurrentSession().createQuery("FROM Developer where id != 0", Developer.class).getResultList();
 	}
 
 	public boolean add(Developer developer) {

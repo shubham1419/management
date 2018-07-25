@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shubham.projectmanagement.dao.ProjectDao;
+import com.shubham.projectmanagement.dto.Developer;
 import com.shubham.projectmanagement.dto.Project;
 
 @Repository("projectDao")
@@ -24,8 +25,8 @@ public class ProjectDaoImpl implements ProjectDao {
 
 	@Override
 	public List<Project> list() {
-		// TODO Auto-generated method stub
-		return null;
+		return sessionFactory.getCurrentSession().createQuery("FROM project where id != 0", Project.class).getResultList();
+
 	}
 
 	@Override

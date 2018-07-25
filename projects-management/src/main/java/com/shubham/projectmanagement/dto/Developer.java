@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Developer {
 	@Id
@@ -20,6 +22,7 @@ public class Developer {
 	private String phone;
 	private boolean status;
 	@ManyToOne
+	@JsonIgnore
 	private Project project;
 	public int getId() {
 		return id;

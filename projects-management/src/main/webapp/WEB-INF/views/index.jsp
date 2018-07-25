@@ -1,10 +1,11 @@
-<%@include file="./shared/header.jsp"%>
+<%@ include file="./shared/header.jsp"%>
 <body>
 
 	<c:if test="${userClickIndex == true}">
 		<%@include file="login.jsp"%>
 	</c:if>
-
+<%@ include file="./shared/sidebar.jsp"%>
+<%@ include file="./shared/topHeader.jsp"%>
 	<c:if test="${userCLickDashboard == true}">
 		<%@include file="dashboard.jsp"%>
 	</c:if>
@@ -19,5 +20,5 @@
 	</c:if>
 	
 </body>
-<%@include file="./shared/footer.jsp"%>
+<%@ include file="./shared/footer.jsp"%>
 </html>
