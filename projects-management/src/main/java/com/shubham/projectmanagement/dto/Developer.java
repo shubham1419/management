@@ -1,12 +1,12 @@
 package com.shubham.projectmanagement.dto;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.Transient;
 
 @Entity
 public class Developer {
@@ -18,12 +18,20 @@ public class Developer {
 	private String role;
 	private String designation;
 	private String password;
+	@Transient
+	private String confirmPassword;
 	private String address;
 	private String phone;
 	private boolean status;
 	@ManyToOne
-	@JsonIgnore
 	private Project project;
+	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
 	public int getId() {
 		return id;
 	}
