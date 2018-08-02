@@ -3,6 +3,8 @@ package com.shubham.projectmanagement.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.shubham.projectmanagement.dao.DeveloperDao;
 import com.shubham.projectmanagement.dto.Developer;
+import com.shubham.projectmanagement.util.FileUploadUtility;
 
 @Controller
 @RequestMapping("/manage")
@@ -47,10 +50,14 @@ public class ManagementController {
 	
 	/*for post request*/
 	@RequestMapping(value="developer", method =RequestMethod.POST)
-	public String submitDeveloper(@ModelAttribute("developer") Developer mdeveloper)
+	public String submitDeveloper(@ModelAttribute("developer") Developer mdeveloper, HttpServletRequest request)
 	{
 		logger.info(mdeveloper.toString());
 		developerDao.add(mdeveloper);
+		if(!mdeveloper.getFile().getOriginalFilename().equals(""))
+		{
+			FileUploadUtility.uploadFile(request, mdeveloper.getFile(), mdeveloper.getImgCode());
+		}
 		return "redirect:/manage/developer?status=success";
 	}
 	

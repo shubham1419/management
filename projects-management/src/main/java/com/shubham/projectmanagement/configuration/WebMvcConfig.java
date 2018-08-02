@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -46,13 +48,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/assets/");
 	}	
    
-    
-//   @Override
-//   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//
-//      // Register resource handler for images
-//      registry.addResourceHandler("/resources/**").addResourceLocations("/WEB-INF/assets/");
-//            //.setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
-//   }
+   @Bean
+   public MultipartResolver multipartResolver() {
+      StandardServletMultipartResolver resolver = new StandardServletMultipartResolver();
+      return resolver;
+   }
+   
 }
 

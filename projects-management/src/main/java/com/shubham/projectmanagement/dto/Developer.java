@@ -1,12 +1,16 @@
 package com.shubham.projectmanagement.dto;
 
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Developer {
@@ -17,15 +21,39 @@ public class Developer {
 	private String email;
 	private String role;
 	private String designation;
+	private String imgCode;
 	private String password;
 	@Transient
 	private String confirmPassword;
+	@Transient
+	private MultipartFile file;
 	private String address;
 	private String phone;
 	private boolean status;
 	@ManyToOne
 	private Project project;
+	//default constructor
+	public Developer()
+	{
+		this.imgCode = "Dev" + UUID.randomUUID().toString().substring(26).toUpperCase();
+	}
 	
+	public String getImgCode() {
+		return imgCode;
+	}
+
+	public void setImgCode(String imgCode) {
+		this.imgCode = imgCode;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}

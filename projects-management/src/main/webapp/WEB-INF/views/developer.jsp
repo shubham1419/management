@@ -11,7 +11,7 @@
 	<div class="col-sm-12">
 		<!-- form for adding developer -->
 		<sf:form modelAttribute="developer"
-			action="${contextRoot}/manage/developer" method="POST">
+			action="${contextRoot}/manage/developer" method="POST" enctype="multipart/form-data">
 			<div class="form-group row">
 				<label class="col-2 col-form-label">Full Name</label>
 				<div class="col-10">
@@ -67,9 +67,16 @@
 					<sf:input class="form-control" type="text" path="address" />
 				</div>
 			</div>
+			<div class="form-group row">
+				<label class="col-2 col-form-label">Upload Image:</label>
+				<div class="col-10">
+					<sf:input class="form-control" type="file" path="file" />
+				</div>
+			</div>
 			<input class="bnt btn-primary" type="submit" value="Submit">
 			<sf:input type="hidden" path="id" />
 			<sf:input type="hidden" path="status" />
+			<sf:input type="hidden" path="imgCode" />
 		</sf:form>
 	</div>
 </div>
