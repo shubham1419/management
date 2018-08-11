@@ -26,7 +26,11 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.shubham.projectmanagement.dto.Developer;
+import com.shubham.projectmanagement.dto.Employee;
+import com.shubham.projectmanagement.dto.EmployeeMeta;
 import com.shubham.projectmanagement.dto.Project;
+import com.shubham.projectmanagement.dto.Projects;
+import com.shubham.projectmanagement.dto.ProjectsMeta;
 import com.shubham.projectmanagement.dto.Task;
 
 @Configuration
@@ -63,7 +67,7 @@ public class HibernateConfig {
     props.put(C3P0_MAX_STATEMENTS, env.getProperty("hibernate.c3p0.max_statements"));
 
     factoryBean.setHibernateProperties(props);
-    factoryBean.setAnnotatedClasses(Developer.class, Project.class, Task.class);
+    factoryBean.setAnnotatedClasses(Developer.class, Project.class, Task.class, Employee.class, EmployeeMeta.class, Projects.class, ProjectsMeta.class);
     
     return factoryBean;
   }

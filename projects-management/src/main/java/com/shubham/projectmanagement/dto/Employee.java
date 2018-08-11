@@ -1,15 +1,23 @@
 package com.shubham.projectmanagement.dto;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+@Entity
 public class Employee {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String role;
 	private String designation;
 	private boolean assigned;
 	private boolean status;
 	
-	@OneToOne
+	@OneToOne(mappedBy="employee", cascade=CascadeType.ALL )
 	private EmployeeMeta employeeMeta;
 
 	public int getId() {
