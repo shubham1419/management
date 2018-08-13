@@ -1,5 +1,7 @@
 package com.shubham.projectmanagement.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,12 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Employee {
+public class Employee implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String role;
 	private String designation;
+	private String email;
 	private boolean assigned;
 	private boolean status;
 	
@@ -51,6 +58,14 @@ public class Employee {
 	public void setAssigned(boolean assigned) {
 		this.assigned = assigned;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public boolean isStatus() {
 		return status;
@@ -70,8 +85,9 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", role=" + role + ", designation=" + designation + ", assigned=" + assigned
-				+ ", status=" + status + ", employeeMeta=" + employeeMeta + "]";
+		return "Employee [id=" + id + ", role=" + role + ", designation=" + designation + ", email=" + email
+				+ ", assigned=" + assigned + ", status=" + status + ", employeeMeta=" + employeeMeta + "]";
 	}
 
+	
 }

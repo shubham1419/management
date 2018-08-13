@@ -1,5 +1,6 @@
 package com.shubham.projectmanagement.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,11 +15,16 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
+import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = { "com.shubham.projectmanagement"})
 public class WebMvcConfig implements WebMvcConfigurer {
+	
+	@Autowired
+	private WebFlow webFlowConfig;
 
    @Bean
    public InternalResourceViewResolver resolver() {
@@ -53,6 +59,24 @@ public class WebMvcConfig implements WebMvcConfigurer {
       StandardServletMultipartResolver resolver = new StandardServletMultipartResolver();
       return resolver;
    }
+   /*web flow**/
    
+   @Bean
+   public FlowHandlerMapping flowHandlerMapping() {
+       FlowHandlerMapping handlerMapping = new FlowHandlerMapping();
+       handlerMapping.setOrder(-1);
+       handlerMapping.setFlowRegistry(this.webFlowConfig.flowRegistry());
+       return handlerMapping;
+   }
+
+   @Bean
+   public FlowHandlerAdapter flowHandlerAdapter() {
+       FlowHandlerAdapter handlerAdapter = new FlowHandlerAdapter();
+       handlerAdapter.setFlowExecutor(this.webFlowConfig.flowExecutor());
+       handlerAdapter.setSaveOutputToFlashScopeOnRedirect(true);
+       return handlerAdapter;
+}
+   
+   /***/
 }
 
