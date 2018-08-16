@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Employee implements Serializable {
@@ -23,6 +24,9 @@ public class Employee implements Serializable {
 	private String email;
 	private boolean assigned;
 	private boolean status;
+	private String password;
+	@Transient
+	private String confirmPassword;
 	
 	@OneToOne(mappedBy="employee", cascade=CascadeType.ALL )
 	private EmployeeMeta employeeMeta;
@@ -83,11 +87,30 @@ public class Employee implements Serializable {
 		this.employeeMeta = employeeMeta;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", role=" + role + ", designation=" + designation + ", email=" + email
-				+ ", assigned=" + assigned + ", status=" + status + ", employeeMeta=" + employeeMeta + "]";
+				+ ", assigned=" + assigned + ", status=" + status + ", password=" + password + ", confirmPassword="
+				+ confirmPassword + ", employeeMeta=" + employeeMeta + "]";
 	}
+
+	
 
 	
 }

@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.Transient;
 
 @Entity
 public class EmployeeMeta implements Serializable {
@@ -23,9 +22,6 @@ public class EmployeeMeta implements Serializable {
 	private String address;
 	private String phone;
 	private String profileImage;
-	private String password;
-	@Transient
-	private String confirmPassword;
 	private boolean status;
 	
 	@OneToOne
@@ -79,22 +75,6 @@ public class EmployeeMeta implements Serializable {
 		this.profileImage = profileImage;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
-
 	public boolean isStatus() {
 		return status;
 	}
@@ -114,9 +94,10 @@ public class EmployeeMeta implements Serializable {
 	@Override
 	public String toString() {
 		return "EmployeeMeta [id=" + id + ", fisrtName=" + fisrtName + ", lastName=" + lastName + ", address=" + address
-				+ ", phone=" + phone + ", profileImage=" + profileImage + ", password=" + password
-				+ ", confirmPassword=" + confirmPassword + ", status=" + status + ", employee=" + employee + "]";
+				+ ", phone=" + phone + ", profileImage=" + profileImage + ", status=" + status + ", employee="
+				+ employee + "]";
 	}
 
+	
 	
 }

@@ -35,19 +35,6 @@
 					<sf:input class="form-control" type="text" path="phone" />
 				</div>
 			</div>
-			<div class="form-group row">
-				<label class="col-2 col-form-label">Password:</label>
-				<div class="col-10">
-					<sf:input class="form-control" type="password" path="password" />
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-2 col-form-label">Confirm Password:</label>
-				<div class="col-10">
-					<sf:input class="form-control" type="password"
-						path="confirmPassword" />
-				</div>
-			</div>
 			<sf:input type="hidden" path="id" />
 			<sf:input type="hidden" path="status" />
 			<sf:input type="hidden" path="profileImage" />

@@ -14,6 +14,9 @@ import static org.hibernate.cfg.AvailableSettings.USER;
 
 import java.util.Properties;
 
+import javax.sql.DataSource;
+
+import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -78,4 +81,15 @@ public class HibernateConfig {
     transactionManager.setSessionFactory(getSessionFactory().getObject());
     return transactionManager;
   }
+  
+ /* *//**only for providing data source to spring security**//*
+  @Bean("dataSource")
+  public DataSource getDataSource() {
+     BasicDataSource dataSource = new BasicDataSource();
+     dataSource.setDriverClassName(env.getProperty("mysql.driver"));
+     dataSource.setUrl(env.getProperty("mysql.jdbcUrl"));
+     dataSource.setUsername(env.getProperty("mysql.username"));
+     dataSource.setPassword(env.getProperty("db.password"));
+     return dataSource;
+}*/
 }
