@@ -22,7 +22,7 @@ public class EmployeeMeta implements Serializable {
 	private String address;
 	private String phone;
 	private String profileImage;
-	private boolean status;
+	private boolean status = true;
 	
 	@OneToOne
 	private Employee employee;

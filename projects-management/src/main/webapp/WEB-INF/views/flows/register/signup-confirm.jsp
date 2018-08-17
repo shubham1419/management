@@ -29,6 +29,9 @@
 							E-mail : <strong>${registerModel.employee.email}</strong>
 						</p>
 						<p>
+							Password : <strong>${registerModel.employee.password}</strong>
+						</p>
+						<p>
 							<a href="${flowExecutionUrl}&_eventId_professional"
 								class="btn btn-primary">Edit</a>
 						</p>
@@ -61,9 +64,6 @@
 						</p>
 						<p>
 							Phone : <strong>${registerModel.employeeMeta.phone}</strong>
-						</p>
-						<p>
-							Password : <strong>${registerModel.employeeMeta.password}</strong>
 						</p>
 						<p>
 							<a href="${flowExecutionUrl}&_eventId_personal"

@@ -13,7 +13,7 @@ public class ProjectsMeta {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String taskName;
-	private boolean status;
+	private boolean status = true;
 	
 	@ManyToOne
 	private Projects projects;

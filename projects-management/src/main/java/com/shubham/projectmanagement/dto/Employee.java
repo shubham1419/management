@@ -23,7 +23,7 @@ public class Employee implements Serializable {
 	private String designation;
 	private String email;
 	private boolean assigned;
-	private boolean status;
+	private boolean status = true;
 	private String password;
 	@Transient
 	private String confirmPassword;

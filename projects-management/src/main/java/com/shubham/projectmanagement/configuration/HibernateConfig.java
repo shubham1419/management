@@ -82,7 +82,7 @@ public class HibernateConfig {
     return transactionManager;
   }
   
- /* *//**only for providing data source to spring security**//*
+ /**only for providing data source to spring security**/
   @Bean("dataSource")
   public DataSource getDataSource() {
      BasicDataSource dataSource = new BasicDataSource();
@@ -91,5 +91,5 @@ public class HibernateConfig {
      dataSource.setUsername(env.getProperty("mysql.username"));
      dataSource.setPassword(env.getProperty("db.password"));
      return dataSource;
-}*/
+}
 }

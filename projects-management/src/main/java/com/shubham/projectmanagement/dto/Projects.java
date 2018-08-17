@@ -15,7 +15,7 @@ public class Projects {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String projectName;
-	private boolean status;
+	private boolean status = true;
 	@OneToMany(mappedBy="projects")
 	private List<ProjectsMeta> projectMetaId = new ArrayList();
 	public int getId() {
