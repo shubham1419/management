@@ -88,18 +88,27 @@
 
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
+                    
+                     <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+  <span class="caret"></span></button>
+ ${userModel.id} ${contextRoot}
+ ${userModel.email}-email
+</div> 
+                    
+                    
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
                         </a>
 
-                        <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                        <div class="user-menu dropdown-menu dropdown">
+                                <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
 
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
+                                <a class="nav-link" href="#"><i class="fa fa-user"></i>Notifications <span class="count">13</span></a>
 
-                                <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+                                <a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
 
-                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                                <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
                         </div>
                     </div>
 

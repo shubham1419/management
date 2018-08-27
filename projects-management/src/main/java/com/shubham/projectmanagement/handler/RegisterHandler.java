@@ -47,6 +47,7 @@ public class RegisterHandler {
 		employee.setPassword(passwordEncoder.encode(employee.getPassword()));
 		
 		employeeDao.add(employee);
+		employeeMeta.setEmployee(employee);
 		employeeMetaDao.add(employeeMeta);
 		
 		return value;

@@ -28,6 +28,19 @@ public class EmployeeMetaDaoImpl implements EmployeeMetaDao {
 		}
 		return null;
 	}
+	
+	@Override
+	public EmployeeMeta getSingle(int id) {
+		try{
+			String query = "FROM EmployeeMeta where employee_id = :id";
+			return sessionFactory.getCurrentSession().createQuery(query, EmployeeMeta.class ).setParameter("id",id).getSingleResult();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	@Override
 	public List<EmployeeMeta> list() {

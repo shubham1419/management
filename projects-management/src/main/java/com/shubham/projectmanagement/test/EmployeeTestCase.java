@@ -34,8 +34,11 @@ public class EmployeeTestCase {
 	@Test
 	public void addEmployeeWithMeta()
 	{
+		employeeMeta = new EmployeeMeta();
+		employeeMeta = employeeMetaDao.getSingle(1);
+		assertEquals("Failed to get Single result", "user", employeeMeta.getFisrtName());
 		//for add
-		employee = new Employee();
+		/*employee = new Employee();
 		employeeMeta = new EmployeeMeta();
 		
 		employee.setDesignation("Team Lead");
@@ -73,6 +76,7 @@ public class EmployeeTestCase {
 		employee = employeeDao.get(22);
 		assertEquals("Failed to update", true, employeeDao.hardDelete(employee));
 		//work on both employee and its child employeemeta
+		 * */
 		
 	}	
 }

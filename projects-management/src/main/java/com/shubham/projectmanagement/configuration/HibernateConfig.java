@@ -81,7 +81,7 @@ public class HibernateConfig {
     transactionManager.setSessionFactory(getSessionFactory().getObject());
     return transactionManager;
   }
-  
+   
  /**only for providing data source to spring security**/
   @Bean("dataSource")
   public DataSource getDataSource() {

@@ -90,5 +90,20 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			return false;
 		}
 	}
+	
+	@Override
+	public Employee getByEmail(String email) {
+		try 
+		{
+			String query = "From Employee where email=:email";
+			return sessionFactory.getCurrentSession().createQuery(query,Employee.class).setParameter("email",email).getSingleResult();
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return null;	
+		}
+}
 
 }

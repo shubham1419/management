@@ -7,6 +7,7 @@ import com.shubham.projectmanagement.dto.Employee;
 public interface EmployeeDao {
 
 	Employee get(int id);
+	Employee getByEmail(String email);
 	List<Employee> list();
 	boolean add(Employee employee);
 	boolean update(Employee employee);
