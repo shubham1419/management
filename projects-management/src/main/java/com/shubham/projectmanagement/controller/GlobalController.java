@@ -37,8 +37,8 @@ public class GlobalController {
 			if (!authentication.getPrincipal().equals("anonymousUser")) {
 				// get the user from the database
 				employee = employeeDao.getByEmail(authentication.getName());
-				employeeMeta = employeeMetaDao.getSingle(employee.getId());
-
+				//employeeMeta = employeeMetaDao.get(2);
+  
 				if (employee != null) {
 					// create a new model
 					userModel = new UserModel();
