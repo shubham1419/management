@@ -17,6 +17,14 @@
 		<%@include file="developer.jsp" %>
 	</c:if>
 	
+	<c:if test="${userClickAddProject == true}">
+		<%@include file="project.jsp" %>
+	</c:if>
+	
+	<c:if test="${userClickAddProjectTasks == true}">
+		<%@include file="tasks.jsp" %>
+	</c:if>
+	
 	<!--  **for testing purpose**-->
 	<c:if test="${userCLickTesting == true}">
 		<%@include file="testing.jsp"%>
