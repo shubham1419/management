@@ -13,6 +13,7 @@ public class ProjectsMeta {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String taskName;
+	private String taskDescription;
 	private boolean status = true;
 	
 	@ManyToOne
@@ -50,11 +51,21 @@ public class ProjectsMeta {
 		this.projects = projects;
 	}
 
+	public String getTaskDescription() {
+		return taskDescription;
+	}
+
+	public void setTaskDescription(String taskDescription) {
+		this.taskDescription = taskDescription;
+	}
+
 	@Override
 	public String toString() {
-		return "ProjectsMeta [id=" + id + ", taskName=" + taskName + ", status=" + status + ", projects=" + projects
-				+ "]";
+		return "ProjectsMeta [id=" + id + ", taskName=" + taskName + ", taskDescription=" + taskDescription
+				+ ", status=" + status + ", projects=" + projects + "]";
 	}
+
+	
 	
 
 }
