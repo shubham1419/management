@@ -2,12 +2,12 @@
         
  <div class="main-panel">
       <!-- Navbar -->
+       <security:authorize access="isAuthenticated()">
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
           </div>
-        <security:authorize access="isAuthenticated()">
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
@@ -26,19 +26,10 @@
                   <a class="dropdown-item" href="${contextRoot}/perform-logout">Logout</a>
                 </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-              </li>
             </ul>
           </div>
-          </security:authorize>
         </div>
       </nav>
       <!-- End Navbar -->        
-        
+      </security:authorize>  
     <div class="content">    
