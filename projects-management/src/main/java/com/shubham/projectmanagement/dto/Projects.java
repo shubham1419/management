@@ -1,6 +1,5 @@
 package com.shubham.projectmanagement.dto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -17,7 +16,7 @@ public class Projects {
 	private String projectName;
 	private boolean status = true;
 	@OneToMany(mappedBy="projects")
-	private List<ProjectsMeta> projectMetaId = new ArrayList();
+	private List<ProjectsMeta> projectMetaId;
 	public int getId() {
 		return id;
 	}

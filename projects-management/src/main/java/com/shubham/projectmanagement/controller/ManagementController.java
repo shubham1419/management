@@ -1,14 +1,21 @@
 package com.shubham.projectmanagement.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.AutoPopulatingList;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +26,7 @@ import com.shubham.projectmanagement.dao.DeveloperDao;
 import com.shubham.projectmanagement.dao.ProjectsDao;
 import com.shubham.projectmanagement.dao.ProjectsMetaDao;
 import com.shubham.projectmanagement.dto.Developer;
+import com.shubham.projectmanagement.dto.Employee;
 import com.shubham.projectmanagement.dto.Projects;
 import com.shubham.projectmanagement.dto.ProjectsMeta;
 import com.shubham.projectmanagement.util.FileUploadUtility;
@@ -68,8 +76,77 @@ public class ManagementController {
 		return "redirect:/manage/add/project?status=success";
 	}
 	
-
 	
+	
+	
+	
+	
+	
+	 // Manage dynamically added or removed employees
+    private List<ProjectsMeta> manageEmployees(Projects projects) {
+        // Store the employees which shouldn't be persisted
+        List<ProjectsMeta> projects2remove = new ArrayList<ProjectsMeta>();
+        if (projects.getProjectId() != null) {
+            for (Iterator<ProjectsMeta> i = projects.getProjectId().iterator(); i.hasNext();) {
+            	ProjectsMeta projectsMeta = i.next();
+                // If the remove flag is true, remove the employee from the list
+                if (projectsMeta.getRemove() == 1) {
+                    projects2remove.add(projectsMeta);
+                    i.remove();
+                // Otherwise, perform the links
+                } else {
+                	projectsMeta.setProjects(projects);
+                }
+            }
+        }
+        return projects2remove;
+    }
+
+    // -- Creating a new employer ----------
+
+    @RequestMapping(value = "create", method = RequestMethod.GET)
+    public String create(@ModelAttribute Projects projects, Model model) {
+        // Should init the AutoPopulatingList
+        return create(projects, model, true);
+    }
+
+    private String create(Projects projects, Model model, boolean init) {
+        if (init) {
+            // Init the AutoPopulatingList
+        	projects.setProjectId(new AutoPopulatingList<ProjectsMeta>(ProjectsMeta.class));
+        }
+        model.addAttribute("type", "create");
+        return "tasks";
+    }
+
+    @RequestMapping(value = "create", method = RequestMethod.POST)
+    public String create(@Valid @ModelAttribute Projects projects, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            // Should not re-init the AutoPopulatingList
+            return create(projects, model, false);
+        }
+        // Call the private method
+        manageEmployees(projects);
+        // Persist the project
+        projectsDao.add(projects);
+        return "redirect:tasks/" + projects.getId();
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+/*	
 	@RequestMapping(value="add/project/tasks", method =RequestMethod.GET)
 	public ModelAndView showManageProjectTasks(@RequestParam(name="status", required= false) String status)
 	{
@@ -91,7 +168,7 @@ public class ManagementController {
 	}
 	
 	
-	/*for post request*/
+	/*for post request*
 	@RequestMapping(value="add/project/tasks", method =RequestMethod.POST)
 	public String submitProjectTasks(@ModelAttribute("projectMeta") ProjectsMeta mprojectMeta, HttpServletRequest request)
 	{
@@ -100,7 +177,7 @@ public class ManagementController {
 		return "redirect:/manage/add/project/tasks?status=success";
 	}
 	
-
+*/
 	
 	
 	
