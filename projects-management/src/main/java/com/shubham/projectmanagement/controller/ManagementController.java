@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shubham.projectmanagement.dao.DeveloperDao;
+import com.shubham.projectmanagement.dao.EmployeeDao;
 import com.shubham.projectmanagement.dao.ProjectsDao;
 import com.shubham.projectmanagement.dao.ProjectsMetaDao;
 import com.shubham.projectmanagement.dto.Developer;
@@ -44,7 +45,27 @@ public class ManagementController {
 	private ProjectsDao projectsDao;
 	
 	@Autowired
-	private ProjectsMetaDao projectsmetaDao;
+	private EmployeeDao employeeDao;
+	
+	
+	/*for getting all employees*/
+	@RequestMapping(value="all-employees")
+	public ModelAndView showAllEmployees()
+	{
+		
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("userClickAllEmployees", true);
+		mv.addObject("title", "All Employees");
+		mv.addObject("employee", employeeDao.list());
+		return mv;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value="add/project", method =RequestMethod.GET)
 	public ModelAndView showManageProject(@RequestParam(name="status", required= false) String status)

@@ -25,6 +25,10 @@
 		<%@include file="tasks.jsp" %>
 	</c:if>
 	
+	<c:if test="${userClickAllEmployees == true}">
+		<%@include file="allEmployees.jsp" %>
+	</c:if>
+	
 	<!--  **for testing purpose**-->
 	<c:if test="${userCLickTesting == true}">
 		<%@include file="testing.jsp"%>

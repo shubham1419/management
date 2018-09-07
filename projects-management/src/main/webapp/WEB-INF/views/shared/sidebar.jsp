@@ -27,13 +27,13 @@
           </security:authorize>
            <security:authorize access="hasAuthority('ADMIN')">
           <li class="nav-item ">
-            <a class="nav-link" href="${contextRoot}/manage/all-projects">
+            <a class="nav-link" href="${contextRoot}/manage/all-employees">
               <i class="material-icons">person</i>
               <p>Manage Employee</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="${contextRoot}/manage/all-employees">
+            <a class="nav-link" href="${contextRoot}/manage/all-projects">
               <i class="material-icons">library_books</i>
               <p>Manage Projects</p>
             </a>

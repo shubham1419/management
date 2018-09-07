@@ -20,7 +20,7 @@ public class WebFlow extends AbstractFlowConfiguration {
     
     @Bean
     public FlowDefinitionRegistry flowRegistry() {
-        return getFlowDefinitionRegistryBuilder(flowBuilderServices()).addFlowLocation("/WEB-INF/views/flows/register/register-flow.xml", "register").build();
+        return getFlowDefinitionRegistryBuilder(flowBuilderServices()).addFlowLocation("/WEB-INF/views/flows/register/register-flow.xml", "manage/register").build();
     }
  
     @Bean
