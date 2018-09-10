@@ -50,7 +50,7 @@
                             ${emp.email}
                           </td>
                           <td class="text-primary">
-                           <a href="#" class="btn btn-success">
+                           <a href="${contextRoot}/manage/employee/${emp.id}" class="btn btn-success">
                            	<i class="fa fa-pencil" aria-hidden="true"></i>
                            </a>
                            <a href="#" class="btn btn-primary">
